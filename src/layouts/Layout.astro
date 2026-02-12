@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="OOMI WORKS - Digital Creative Lab. We build websites, digital ecosystems, and brand identities." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+    <link rel="preload" href="/fonts/novecentobold.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/fonts/novecentonormal.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/fonts/onebold.ttf" as="font" type="font/ttf" crossorigin />
+	</head>
+	<body class="bg-white dark:bg-oomi-dark text-oomi-dark dark:text-white transition-colors duration-500 overflow-x-hidden">
+		<slot />
+	</body>
+</html>
+
+<script is:inline>
+	// Anti-Flash Theme Script
+	const theme = (() => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			return 'dark';
+		}
+		return 'light';
+	})();
+	if (theme === 'dark') {
+		document.documentElement.classList.add('dark');
+	} else {
+		document.documentElement.classList.remove('dark');
+	}
+</script>

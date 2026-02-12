@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Utama: Novecento */
+@font-face {
+  font-family: 'Novecento sans wide';
+  src: url('/fonts/novecentonormal.otf') format('opentype'); /* Perhatikan path-nya */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Novecento sans wide';
+  src: url('/fonts/novecentobold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Novecento sans wide';
+  src: url('/fonts/novecentolight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font Kedua: One */
+@font-face {
+  font-family: 'One';
+  src: url('/fonts/onebold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'One';
+  src: url('/fonts/onemed.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'One';
+  src: url('/fonts/onelight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Scrollbar halus */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}

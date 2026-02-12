@@ -1,0 +1,372 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// --- COMPONENT REACT ---
+import StaggeredMenu from '../components/StaggeredMenu.jsx';
+import CurvedLoop from '../components/CurvedLoop.jsx';
+
+// --- ASSETS ---
+import oomiLogo from '../assets/images/oomi_1.png';
+import oomiLogo2 from '../assets/images/oomi_2.png';
+
+// --- DATA ---
+const menuItems = [
+  { label: 'Home', link: '#' },
+  { label: 'About', link: '#about' },
+  { label: 'Services', link: '#services' },
+  { label: 'Work', link: '#work' },
+  { label: 'Price', link: '#pricing' },
+  { label: 'FaQ', link: '#faq' }
+];
+
+const bentoItems = [
+  { title: "Web Development", desc: "High-performance, scalable code engineered for growth.", tag: "Engineering", span: "md:col-span-2" },
+  { title: "UI/UX Design", desc: "Urban aesthetics meets human-centered function.", tag: "Creative", span: "md:col-span-1" },
+  { title: "Digital Ecosystems", desc: "Building comprehensive online environments that scale with your business.", tag: "Concept", span: "md:col-span-1 md:row-span-2" },
+  { title: "Brand Identity", desc: "Visuals that demand attention and stick in memory.", tag: "Branding", span: "md:col-span-2" },
+  { title: "Tech Strategy", desc: "Future-proof roadmaps for your digital transformation.", tag: "Consulting", span: "md:col-span-2" },
+];
+
+const workflowItems = [
+  { text: '01. DISCOVERY', image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=60&w=600&fmt=webp' },
+  { text: '02. STRATEGY', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=60&w=600&fmt=webp' },
+  { text: '03. DESIGN', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=60&w=600&fmt=webp' },
+  { text: '04. DEVELOPMENT', image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=60&w=600&fmt=webp' },
+  { text: '05. LAUNCH', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=60&w=600&fmt=webp' }
+];
+
+const recentWorks = [
+  { title: "NEON HORIZON", category: "Web Experience", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=60&w=800&fmt=webp" },
+  { title: "VELVET SYSTEM", category: "Branding & UI", image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=60&w=800&fmt=webp" },
+  { title: "URBAN PULSE", category: "Mobile App", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=60&w=800&fmt=webp" }
+];
+
+const pricingList = [
+  { service: "Landing Page", price: "Starts 1.5jt", detail: "One page, fast, high conversion." },
+  { service: "Company Profile", price: "Starts 3.5jt", detail: "Multi-page, SEO ready, dynamic." },
+  { service: "E-Commerce", price: "Starts 8jt", detail: "Full shop system, payment gateway." },
+  { service: "Custom App", price: "Let's Talk", detail: "Tailored specifically for your needs." }
+];
+
+const faqs = [
+  { question: "Do you only work with large enterprises?", answer: "Not at all. We love ambitious startups and SMEs. If you have a bold vision, we're the lab to cook it up." },
+  { question: "How long does a typical project take?", answer: "It varies. A landing page might take 2-3 weeks, while a full digital system could take 2-4 months. We value quality over rushing." },
+  { question: "What is a 'Digital Ecosystem'?", answer: "It's not just a standalone website. It's creating a connected online environment that mirrors your business processes, brand soul, and customer interaction seamlessly." },
+  { question: "Do you provide maintenance after launch?", answer: "Absolutely. We don't just launch and leave. We offer monthly care packages to ensure your digital asset stays sharp and secure." }
+];
+
+const layoutPadding = "px-6 sm:px-14 lg:px-48";
+---
+
+<Layout title="OOMI WORKS | Digital Creative Lab">
+
+  <div id="preloader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-oomi-dark text-white transition-transform duration-1000 ease-in-out will-change-transform">
+    <div class="flex flex-col items-center gap-4 animate-pulse">
+      <h1 class="text-4xl md:text-6xl font-black font-sans tracking-tighter uppercase">
+        OOMI<span class="text-oomi-accent">.</span>WORKS
+      </h1>
+      <div class="w-48 h-1 bg-white/20 rounded-full overflow-hidden mt-4">
+        <div id="progress-bar" class="h-full bg-oomi-accent w-0 transition-all duration-[2000ms] ease-out"></div>
+      </div>
+      <p class="font-mono text-xs text-white/50 mt-2">INITIALIZING...</p>
+    </div>
+  </div>
+
+  <StaggeredMenu 
+    client:load 
+    items={menuItems}
+    logoUrl={oomiLogo.src}
+    socialItems={[
+      { label: 'Instagram', link: '#' },
+      { label: 'LinkedIn', link: '#' },
+      { label: 'WhatsApp', link: '#' }
+    ]}
+  />
+
+  <main class={`relative flex items-center justify-center min-h-screen pt-20 overflow-hidden ${layoutPadding}`}>
+    <div class="absolute inset-0 z-0 opacity-60 dark:opacity-40 pointer-events-none aurora-gradient"></div>
+
+    <div class="flex flex-col items-center text-center z-10 relative w-full reveal-on-scroll">
+      <div class="mb-6 px-4 py-1 border border-oomi-dark dark:border-white rounded-full text-sm font-bold uppercase tracking-widest w-fit bg-white/50 dark:bg-black/20 backdrop-blur-sm">
+        The Creative Lab
+      </div>
+
+      <div class="mb-8 flex flex-col items-center">
+        <h1 class="text-5xl md:text-8xl lg:text-7xl font-black tracking-tighter leading-none text-oomi-dark dark:text-white block scale-up-anim">
+          MAKE YOUR BUSINESS
+        </h1>
+        <h1 class="text-5xl md:text-8xl lg:text-7xl font-black tracking-tighter leading-none text-oomi-accent block mt-2 scale-up-anim" style="animation-delay: 0.2s;">
+          POP & ALIVE!
+        </h1>
+      </div>
+
+      <p class="text-lg md:text-xl max-w-2xl mb-10 font-sub font-bold text-gray-600 dark:text-gray-300 leading-relaxed fade-up-anim" style="animation-delay: 0.4s;">
+        We don't just build websites; we create digital experiences that breathe. Your vision, our magic, one urban creative lab.
+      </p>
+      
+      <div class="text-oomi-accent font-bold text-xl uppercase tracking-widest animate-bounce">
+        GO EXIST • GO CREATE • GO DIGITAL
+      </div>
+    </div>
+  </main>
+
+  <section class={`flex items-center justify-center relative z-10 font-black flex-col py-20 text-center ${layoutPadding}`}>
+    <Image src={oomiLogo2} alt="Oomi Works Logo" width={160} format="avif" quality="mid" class="w-40 dark:invert transition-all duration-500 mb-8 reveal-on-scroll" />
+    <h2 class="text-6xl md:text-8xl font-black text-oomi-dark dark:text-white tracking-tighter reveal-on-scroll delay-100">
+      OOMI.WORKS
+    </h2>
+  </section>
+
+  <section id="about" class={`bg-white dark:bg-oomi-dark py-24 relative z-20 overflow-hidden transition-colors duration-500 ${layoutPadding}`}>
+    <div class="w-full flex flex-col md:flex-row items-center gap-16">
+      <div class="w-full md:w-1/2 relative group reveal-on-scroll slide-right">
+        <div class="aspect-[4/5] bg-oomi-dark dark:bg-black rounded-[2rem] overflow-hidden relative shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=60&w=800&fmt=webp" loading="lazy" width="600" height="750" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" alt="Fikri Aidhil - Founder & Lead" />
+          <div class="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl">
+            <p class="text-white text-xs font-bold tracking-widest uppercase mb-1">FOUNDER & LEAD</p>
+            <p class="text-white text-2xl font-black leading-none uppercase">FIKRI AIDHIL</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 space-y-8 reveal-on-scroll slide-left">
+        <div>
+          <h3 class="text-oomi-accent font-bold tracking-[0.2em] text-sm uppercase mb-4 flex items-center gap-2">
+            <span class="w-8 h-[2px] bg-oomi-accent inline-block"></span> THE ARCHITECT
+          </h3>
+          <h2 class="text-4xl md:text-5xl font-black text-oomi-dark dark:text-white leading-tight mb-6 uppercase">
+            CODING WITH <br/> <span class="text-oomi-accent italic">SOUL & CHAOS.</span>
+          </h2>
+        </div>
+        <div class="space-y-6 text-gray-600 dark:text-gray-300 font-sub font-bold text-lg leading-relaxed">
+          <p>Hi, I'm Fikri. I started OOMI WORKS with a simple obsession: <span class="text-oomi-dark dark:text-white font-extrabold uppercase">killing boring websites.</span></p>
+          <p>As a Computer Science student and a digital craftsman, I don't just write code; I orchestrate experiences. I believe that a website shouldn't just be a digital brochure.</p>
+        </div>
+        <div class="pt-6 border-t border-gray-200 dark:border-white/10">
+          <p class="font-handwriting text-2xl text-oomi-dark dark:text-white rotate-[-2deg]">"Make it pop, or don't make it at all."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class={`min-h-screen relative z-20 py-24 flex flex-col items-center w-full bg-gray-50 dark:bg-black/20 ${layoutPadding}`}>
+    <div class="mb-16 text-center reveal-on-scroll">
+      <h3 class="text-oomi-accent font-bold tracking-[0.2em] text-sm uppercase mb-2">Our Capabilities</h3>
+      <h2 class="text-4xl md:text-5xl font-black text-oomi-dark dark:text-white tracking-tight uppercase">
+        WHAT WE COOK <span class="text-oomi-accent">.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+      {bentoItems.map((item, index) => (
+        <div class={`group relative overflow-hidden rounded-[2rem] p-8 bg-oomi-dark border border-white/5 hover:border-oomi-accent/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-out cursor-default ${item.span} min-h-[240px] flex flex-col justify-between dark:bg-[#050b14] reveal-on-scroll`} style={`transition-delay: ${index * 100}ms`}>
+          <div class="absolute -right-10 -top-10 w-40 h-40 bg-oomi-accent/10 rounded-full blur-2xl group-hover:bg-oomi-accent/20 transition-all duration-500"></div>
+          <div class="flex justify-between items-start relative z-10">
+            <span class="text-xs font-bold tracking-widest uppercase text-white/50 border border-white/10 px-3 py-1 rounded-full group-hover:text-white group-hover:border-oomi-accent transition-colors duration-300">{item.tag}</span>
+          </div>
+          <div class="relative z-10 mt-auto">
+            <h3 class="text-2xl md:text-3xl font-black font-sans uppercase text-white mb-2 leading-tight group-hover:text-oomi-accent transition-colors duration-300">{item.title}</h3>
+            <p class="text-sm text-white/60 font-sub font-bold leading-relaxed max-w-[90%] group-hover:text-white/80 transition-colors duration-300">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="work" class={`bg-white dark:bg-oomi-dark relative z-20 py-24 ${layoutPadding}`}>
+    <div class="w-full">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-on-scroll">
+        <div>
+          <h3 class="text-oomi-accent font-bold tracking-[0.2em] text-sm uppercase mb-2">Selected Works</h3>
+          <h2 class="text-4xl md:text-6xl font-black text-oomi-dark dark:text-white tracking-tight leading-none uppercase">LATEST<br/>DROPS.</h2>
+        </div>
+        <p class='hidden md:block text-oomi-dark dark:text-white font-bold text-lg hover:text-oomi-accent transition-colors underline decoration-2 underline-offset-4 cursor-pointer uppercase'> View All Projects ↗ </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {recentWorks.map((work, index) => (
+          <div class="group cursor-pointer reveal-on-scroll" style={`transition-delay: ${index * 150}ms`}>
+            <div class="relative aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-2xl bg-gray-200 mb-6">
+              <div class="absolute inset-0 bg-oomi-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+              <img src={work.image} loading="lazy" width="600" height="800" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 grayscale group-hover:grayscale-0" alt={work.title} />
+              <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-oomi-dark opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">{work.category}</div>
+            </div>
+            <h3 class="text-2xl font-black font-sans uppercase text-oomi-dark dark:text-white mb-1 group-hover:text-oomi-accent transition-colors">{work.title}</h3>
+            <p class="text-sm font-sub font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">{work.category}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class={`bg-white dark:bg-oomi-dark relative z-20 py-10 ${layoutPadding}`}>
+    <div class="w-full reveal-on-scroll">
+      <div class="w-full bg-oomi-dark text-white rounded-[2.5rem] p-8 md:p-16 border border-white/10 relative overflow-hidden group shadow-2xl">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-oomi-accent/20 blur-[100px] rounded-full pointer-events-none group-hover:bg-oomi-accent/30 transition-colors duration-700"></div>
+        <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/5 blur-[50px] rounded-full pointer-events-none"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 relative z-10">
+          <div class="space-y-6 max-w-lg">
+            <div>
+              <h3 class="text-oomi-accent font-bold tracking-[0.2em] text-sm uppercase mb-2">Investment</h3>
+              <h2 class="text-4xl md:text-6xl font-black uppercase leading-tight tracking-tighter">
+                READY TO <br/> <span class="text-gray-500 group-hover:text-white transition-colors duration-500">COLLABORATE?</span>
+              </h2>
+            </div>
+            <p class="text-white/60 font-sub font-bold text-lg">
+              Transparan, tanpa biaya tersembunyi. Investasi terbaik untuk transformasi digital bisnis Anda.
+            </p>
+            <a href="#" class="inline-block bg-white text-oomi-dark px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-oomi-accent hover:text-white transition-all duration-300">
+              Get a Quote ↗
+            </a>
+          </div>
+
+          <div class="w-full md:w-auto min-w-[300px] lg:min-w-[400px] bg-white/5 p-6 md:p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+            <ul class="space-y-6">
+              {pricingList.map((item) => (
+                <li class="flex flex-col gap-1 border-b border-white/10 pb-4 last:border-0 last:pb-0">
+                  <div class="flex justify-between items-center w-full">
+                    <span class="font-bold text-lg">{item.service}</span>
+                    <span class="font-black text-oomi-accent text-lg">{item.price}</span>
+                  </div>
+                  <span class="text-xs text-white/40 font-mono uppercase tracking-wide">{item.detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full py-10 overflow-hidden text-oomi-dark dark:text-white bg-white dark:bg-oomi-dark relative min-h-[300px] flex items-center justify-center">
+    <CurvedLoop 
+      client:only="react" 
+      marqueeText="We're Always Here For You ✦" 
+      curveAmount={120}
+      className=""
+    />
+  </div>
+
+  <section id="faq" class={`bg-gray-50 dark:bg-[#050b14] py-24 ${layoutPadding}`}>
+    <div class="w-full max-w-4xl mx-auto">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <h3 class="text-oomi-accent font-bold tracking-[0.2em] text-sm uppercase mb-2">Common Queries</h3>
+        <h2 class="text-4xl md:text-5xl font-black text-oomi-dark dark:text-white tracking-tight uppercase">ASK THE LAB <span class="text-oomi-accent">?</span></h2>
+      </div>
+      
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group border-b border-oomi-dark/10 dark:border-white/10 reveal-on-scroll">
+            <summary class="flex justify-between items-center w-full py-6 text-left cursor-pointer list-none focus:outline-none">
+              <span class="text-xl md:text-2xl font-black font-sans uppercase text-oomi-dark dark:text-white group-hover:text-oomi-accent transition-colors leading-tight">
+                {faq.question}
+              </span>
+              <span class="transition-transform duration-300 group-open:rotate-45 text-oomi-dark dark:text-white group-open:text-oomi-accent">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <div class="pb-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-sub font-bold animate-fadeIn">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <footer class={`bg-oomi-dark text-white pt-32 pb-12 relative z-20 overflow-hidden ${layoutPadding}`}>
+    <div class="w-full text-center mb-32 relative z-10 reveal-on-scroll">
+      <p class="text-oomi-accent font-bold tracking-widest uppercase mb-6">Ready to start?</p>
+      <a href="mailto:hello@oomi.works" class="block text-[12vw] leading-[0.9] font-black tracking-tighter hover:text-oomi-accent transition-colors duration-300">LET'S TALK</a>
+    </div>
+    <div class="w-full flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-10 gap-8">
+      <div class="text-center md:text-left">
+        <p class="text-2xl font-black mb-2">OOMI.WORKS</p>
+        <p class="text-white/50 text-sm max-w-xs mx-auto md:mx-0 font-sub font-bold">The creative lab engineering digital experiences for bold businesses.</p>
+      </div>
+      <div class="flex gap-8 font-bold text-sm tracking-widest">
+        <a href="#" class="hover:text-oomi-accent transition-colors">INSTAGRAM</a>
+        <a href="#" class="hover:text-oomi-accent transition-colors">LINKEDIN</a>
+        <a href="#" class="hover:text-oomi-accent transition-colors">WHATSAPP</a>
+      </div>
+      <div class="text-white/30 text-xs font-mono">© 2026 OOMI WORKS. <br class="md:hidden"/> ALL RIGHTS RESERVED.</div>
+    </div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[400px] bg-oomi-accent/5 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
+  </footer>
+
+  <div class="fixed bottom-4 right-4 z-50 pointer-events-none">
+    <div class="w-16 h-16 bg-oomi-dark dark:bg-white rounded-full flex items-center justify-center shadow-lg animate-spin-slow">
+        <span class="text-[8px] font-bold text-white dark:text-oomi-dark">OOMI.WORKS</span>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  .aurora-gradient {
+    background: radial-gradient(circle at 50% 50%, rgba(224, 93, 68, 0.15), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(10, 25, 47, 0.05), transparent 40%);
+    background-size: 150% 150%;
+    animation: auroraMove 10s infinite ease-in-out;
+  }
+  @keyframes auroraMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-spin-slow {
+    animation: spin 10s linear infinite;
+  }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scale-up-anim {
+    animation: scaleUp 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  @keyframes scaleUp {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* FAQ Styles */
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
+</style>
+
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progress-bar');
+    if(progressBar) progressBar.style.width = '100%';
+    setTimeout(() => {
+      if(preloader) preloader.style.transform = 'translateY(-100%)';
+    }, 2000);
+  });
+
+  const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+</script>
